@@ -11,7 +11,7 @@ const openSans = Open_Sans({
 
 const balsamiq = Balsamiq_Sans({
   subsets: ["cyrillic"],
-  variable: "--font-openSans",
+  variable: "--font-balsamiq",
   weight: ["400", "700"],
 });
 
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${openSans.className}${balsamiq.className}`}>
+      <body className={`${openSans.className} `}>
         <Header />
         {children}
       </body>

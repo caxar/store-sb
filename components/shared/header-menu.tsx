@@ -30,7 +30,7 @@ export const HeaderMenu = ({ className }: Props) => {
     <div className="flex items-center gap-[15px]">
       {menuList.map((item) => (
         <Link
-          className="hover:bg-sb_green hover:py-3 px-5 rounded-3xl hover:text-sb_white hover:transition ease-in-out delay-100"
+          className="py-3 px-5 rounded-3xl hover:text-sb_white hover:bg-sb_green transition-all duration-300"
           key={nanoid()}
           href={item.link}
         >

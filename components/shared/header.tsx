@@ -10,7 +10,7 @@ import { SearchInput } from "./search-input";
 
 export const Header = () => {
   return (
-    <header className="mt-5">
+    <header className="py-4 mb-10 sticky top-0 bg-white z-10">
       <Container>
         <div className="flex items-center justify-between">
           {/* левая часть */}
@@ -18,10 +18,10 @@ export const Header = () => {
             {/* Логотип */}
             <Link href="/">
               <div
-                className="flex items-center justify-center bg-sb_green w-[50px] h-[50px]
-           rounded-3xl"
+                className="flex items-center justify-center bg-sb_green w-[60px] h-[60px]
+           rounded-full"
               >
-                <span className="text-[25px] font-extrabold text-sb_white">
+                <span className="text-[25px] font-bold text-sb_white font-shantell">
                   SB
                 </span>
               </div>
@@ -41,18 +41,29 @@ export const Header = () => {
 
             {/* Кнопки управления */}
             <div className="flex items-center gap-5">
-              <Button
-                variant="secondary"
-                className="rounded-full h-[50px] w-[53px]"
-              >
-                <Heart size={64} />
-              </Button>
-              <Button
-                variant="secondary"
-                className="rounded-full h-[50px] w-[53px]"
-              >
-                <ShoppingCart />
-              </Button>
+              <Link href="/fav">
+                <Button
+                  variant="secondary"
+                  className="group rounded-full h-[50px] w-[53px] relative transition duration-300 ease-in-out hover:bg-sb_green"
+                >
+                  <Heart size={22} className="group-hover:text-sb_white" />
+                  <div className="absolute flex items-center justify-center bg-sb_green w-[23px] h-[23px] rounded-full text-sb_white text-[14px] bottom-[-8px] right-[0px] group-hover:bg-sb_black">
+                    34
+                  </div>
+                </Button>
+              </Link>
+
+              <Link href="/cart">
+                <Button
+                  variant="secondary"
+                  className="group rounded-full h-[50px] w-[53px] transition duration-300 ease-in-out hover:bg-sb_green"
+                >
+                  <ShoppingCart
+                    size={22}
+                    className="group-hover:text-sb_white"
+                  />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -18,10 +18,10 @@ const buttonVariants = cva(
         secondary: "bg-sb_white",
         ghost:
           "hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
-        link: "text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50",
+        link: "py-5 w-[245px] border rounded-full text-[17px] border-sb_black hover:bg-sb_black hover:text-sb_white",
       },
       size: {
-        default: "h-9 px-4 py-2",
+        default: "",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",

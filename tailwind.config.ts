@@ -23,6 +23,7 @@ const config: Config = {
       },
       fontFamily: {
         balsamiq: ["Balsamiq Sans", "sans-serif"],
+        shantell: ["Shantell Sans", "sans-serif"],
       },
     },
   },
