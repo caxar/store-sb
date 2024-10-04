@@ -34,7 +34,7 @@ export const ProductCard = ({
       <Link href={`/product/${id}`}>
         {/* Картинка товара */}
         <div className="flex justify-center p-6 bg-secondary rounded-3xl h-[360px] bg-sb_white">
-          <Image className="" src={imageUrl} alt={name} />
+          <img className="" src={imageUrl} alt={name} />
         </div>
       </Link>
 

@@ -7,8 +7,6 @@ import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { ProductCard } from "./product-card";
 
-import testImage from "@/app/images/shoes.png";
-
 type ProductGroupListProps = {
   title: string;
   items: any[];
@@ -40,25 +38,25 @@ export const ProductGroupList = ({
           id={0}
           name={"Nike Air max 97"}
           price={14500}
-          imageUrl={testImage}
+          imageUrl={`/shoes.png`}
         />
         <ProductCard
           id={1}
           name={"Nike Air max 97"}
           price={14500}
-          imageUrl={testImage}
+          imageUrl={`/shoes.png`}
         />
         <ProductCard
           id={2}
           name={"Nike Air max 97"}
           price={14500}
-          imageUrl={testImage}
+          imageUrl={`/shoes.png`}
         />
         <ProductCard
           id={3}
           name={"Nike Air max 97"}
           price={14500}
-          imageUrl={testImage}
+          imageUrl={`/shoes.png`}
         />
       </div>
     </div>

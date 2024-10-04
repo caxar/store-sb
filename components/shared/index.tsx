@@ -6,3 +6,4 @@ export { HeaderBanner } from "./header-banner";
 export { ProductGroupList } from "./product-group-list";
 export { ProductCard } from "./product-card";
 export { About } from "./about";
+export { Social } from "./social";

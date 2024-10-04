@@ -2,7 +2,6 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { Title } from "./title";
 
-import shoeImage from "@/app/shoe-banner.png";
 import Image from "next/image";
 import { Button } from "../ui/button";
 
@@ -30,7 +29,7 @@ export const HeaderBanner = ({ className }: HeaderBannerProps) => {
       </div>
 
       <div className="mt-10">
-        <Image src={shoeImage} alt="nike" className="w-[90%]" />
+        <img src={`/shoe-banner.png`} alt="nike" className="w-[90%]" />
       </div>
 
       <div className="absolute bottom-0 right-0 bg-white py-3 px-3 rounded-tl-3xl">

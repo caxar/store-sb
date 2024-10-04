@@ -2,11 +2,10 @@ import React from "react";
 import { Container } from "./container";
 import { Title } from "./title";
 
-import bannerImage from "@/app/images/about-banner.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { ChevronRight, ShoppingCart } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 type Props = {
   className?: string;
@@ -14,7 +13,7 @@ type Props = {
 
 export const About = ({ className }: Props) => {
   return (
-    <div>
+    <div className={className}>
       <Container>
         <div className="w-[40%]">
           <Title
@@ -54,35 +53,45 @@ export const About = ({ className }: Props) => {
         {/* Баннер */}
 
         <div className="w-full overflow-hidden h-[420px] mb-5 rounded-3xl relative">
-          <Image src={bannerImage} className="w-full absolute top-[-200px]" />
+          <img
+            src={`/about-banner.jpg`}
+            className="w-full absolute top-[-200px]"
+            alt={"Баннер о нас"}
+            // fill={true}
+          />
         </div>
 
         {/* Ссылка на карты */}
-        <div className="mb-[300px] flex items-center justify-between">
-          {/* Левая часть */}
-          <div className="">
-            <Title
-              text="Как с нами связаться"
-              size="sm"
-              className="font-semibold mb-1"
-            />
+        <Link href="/maps">
+          <div className="group  flex items-center justify-between">
+            {/* Левая часть */}
+            <div className="">
+              <Title
+                text="Как с нами связаться"
+                size="sm"
+                className="font-semibold mb-1"
+              />
 
-            <hr className=" group-hover:border-sb_green transition ease duration-300" />
+              <hr className=" group-hover:border-sb_green transition ease duration-300" />
 
-            <p className="text-gray-400 mt-1">И где нас найти на карте</p>
+              <p className="text-gray-400 mt-1">И где нас найти на карте</p>
+            </div>
+            {/* Правая часть */}
+            <div className="">
+              <Link href="/cart">
+                <Button
+                  variant="secondary"
+                  className=" rounded-full h-[60px] w-[60px] transition duration-300 ease-in-out group-hover:bg-sb_green"
+                >
+                  <ChevronRight
+                    size={35}
+                    className="group-hover:text-sb_white"
+                  />
+                </Button>
+              </Link>
+            </div>
           </div>
-          {/* Правая часть */}
-          <div className="">
-            <Link href="/cart">
-              <Button
-                variant="secondary"
-                className="group rounded-full h-[60px] w-[60px] transition duration-300 ease-in-out hover:bg-sb_green"
-              >
-                <ChevronRight size={35} className="group-hover:text-sb_white" />
-              </Button>
-            </Link>
-          </div>
-        </div>
+        </Link>
       </Container>
     </div>
   );

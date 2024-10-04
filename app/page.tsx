@@ -1,4 +1,4 @@
-import { About, Container, HeaderBanner } from "@/components/shared";
+import { About, Container, HeaderBanner, Social } from "@/components/shared";
 import { ProductGroupList } from "@/components/shared/product-group-list";
 
 export default function Home() {
@@ -18,7 +18,10 @@ export default function Home() {
 
         {/* Информация о магазине */}
 
-        <About className="mb-[300px]" />
+        <About className="mb-[60px]" />
+
+        {/* Социальные сети */}
+        <Social className="mb-10" />
       </Container>
     </div>
   );
