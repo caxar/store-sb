@@ -33,7 +33,10 @@ export const HeaderBanner = ({ className }: HeaderBannerProps) => {
       </div>
 
       <div className="absolute bottom-0 right-0 bg-white py-3 px-3 rounded-tl-3xl">
-        <Button className="bg-sb_green w-[165px] py-4 rounded-full text-[17px]">
+        <Button
+          variant="link"
+          className="bg-sb_green border-0 text-sb_white py-5"
+        >
           Каталог
         </Button>
       </div>

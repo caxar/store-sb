@@ -11,3 +11,6 @@ export { Subscribe } from "./subscribe";
 export { SubscribeForm } from "./subscribe-form";
 export { Footer } from "./footer";
 export { Logo } from "./logo";
+export { BreadCrumbs } from "./breadcrumbs";
+export { Filters } from "./filters";
+export { CatalogItem } from "./catalog-item";

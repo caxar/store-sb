@@ -30,10 +30,10 @@ export const ProductCard = ({
   className,
 }: ProductCardProps) => {
   return (
-    <div className={cn("group relative", className)}>
+    <div className={cn(" relative", className)}>
       <Link href={`/product/${id}`}>
         {/* Картинка товара */}
-        <div className="flex justify-center p-6 bg-secondary rounded-3xl h-[360px] bg-sb_white">
+        <div className="group flex justify-center p-6 bg-secondary rounded-3xl h-[360px] bg-sb_white">
           <img className="" src={imageUrl} alt={name} />
         </div>
       </Link>
@@ -58,11 +58,11 @@ export const ProductCard = ({
             <TooltipTrigger>
               <Button
                 variant="secondary"
-                className="group rounded-full h-[50px] w-[53px] bg-white transition duration-300 ease-in-out hover:bg-sb_green"
+                className="group rounded-full h-[50px] w-[53px] bg-white transition duration-300 ease-in-out group-hover:bg-sb_green"
               >
                 <Heart
                   size={22}
-                  className="transition ease duration-300 hover:text-sb_white"
+                  className="transition ease duration-300 group-hover:text-sb_white"
                 />
               </Button>
               <TooltipContent>

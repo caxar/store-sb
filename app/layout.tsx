@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { Open_Sans, Balsamiq_Sans } from "next/font/google";
 import "./globals.css";
 import { Footer, Header } from "@/components/shared";
+import { Metadata } from "next";
 
 const openSans = Open_Sans({
   subsets: ["cyrillic"],
