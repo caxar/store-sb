@@ -20,7 +20,7 @@ const buttonVariants = cva(
         secondary: "bg-sb_white",
         ghost:
           "hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
-        link: "py-5 w-[245px] border rounded-full text-[17px] border-sb_black hover:bg-sb_black hover:text-sb_white",
+        link: "py-4 w-[200px] border rounded-full text-[17px] border-sb_black hover:bg-sb_black hover:text-sb_white",
       },
       size: {
         default: "",

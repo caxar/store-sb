@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Open_Sans, Balsamiq_Sans } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/shared";
+import { Footer, Header } from "@/components/shared";
 
 const openSans = Open_Sans({
   subsets: ["cyrillic"],
@@ -30,6 +30,7 @@ export default function RootLayout({
       <body className={`${openSans.className} `}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

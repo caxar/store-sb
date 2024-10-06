@@ -7,3 +7,7 @@ export { ProductGroupList } from "./product-group-list";
 export { ProductCard } from "./product-card";
 export { About } from "./about";
 export { Social } from "./social";
+export { Subscribe } from "./subscribe";
+export { SubscribeForm } from "./subscribe-form";
+export { Footer } from "./footer";
+export { Logo } from "./logo";

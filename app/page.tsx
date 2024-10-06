@@ -1,4 +1,11 @@
-import { About, Container, HeaderBanner, Social } from "@/components/shared";
+import {
+  About,
+  Container,
+  Footer,
+  HeaderBanner,
+  Social,
+  Subscribe,
+} from "@/components/shared";
 import { ProductGroupList } from "@/components/shared/product-group-list";
 
 export default function Home() {
@@ -21,7 +28,10 @@ export default function Home() {
         <About className="mb-[60px]" />
 
         {/* Социальные сети */}
-        <Social className="mb-10" />
+        <Social className="mb-[60px]" />
+
+        {/* Блок подписаться */}
+        <Subscribe className="mb-[80px]" />
       </Container>
     </div>
   );

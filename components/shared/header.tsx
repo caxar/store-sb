@@ -7,6 +7,7 @@ import { HeaderMenu } from "./header-menu";
 import { Button } from "../ui/button";
 import { Ghost, Heart, ShoppingCart } from "lucide-react";
 import { SearchInput } from "./search-input";
+import { Logo } from "./logo";
 
 export const Header = () => {
   return (
@@ -16,16 +17,7 @@ export const Header = () => {
           {/* левая часть */}
           <div className="flex items-center gap-8">
             {/* Логотип */}
-            <Link href="/">
-              <div
-                className="flex items-center justify-center bg-sb_green w-[60px] h-[60px]
-           rounded-full"
-              >
-                <span className="text-[25px] font-bold text-sb_white font-shantell">
-                  SB
-                </span>
-              </div>
-            </Link>
+            <Logo />
             {/* меню */}
             <div className="">
               <HeaderMenu />

@@ -26,7 +26,6 @@ export const Social = ({ className }: SocialProps) => {
       <Container>
         <div className="flex justify-between items-center mb-10">
           <Title text="Наши социальные сети" className="font-bold" size="xl" />
-
           <div className="flex gap-5">
             <Link href="/test">
               <Button variant="link">Instagram</Button>
