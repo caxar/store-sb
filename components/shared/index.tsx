@@ -14,3 +14,7 @@ export { Logo } from "./logo";
 export { BreadCrumbs } from "./breadcrumbs";
 export { Filters } from "./filters";
 export { CatalogItem } from "./catalog-item";
+export { SelectedGroup } from "./selected-group";
+export { CheckboxFiltersGroup } from "./checkbox-filters-group";
+export { FilterCheckbox } from "./filter-checkbox";
+export { RangeSlider } from "./range-slider";

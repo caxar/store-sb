@@ -1,4 +1,4 @@
-import { Container, Filters, Title } from "@/components/shared";
+import { Container, Filters, SelectedGroup, Title } from "@/components/shared";
 import { BreadCrumbs } from "@/components/shared/";
 import React from "react";
 import {
@@ -9,12 +9,15 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { LayoutDashboard, StretchHorizontal } from "lucide-react";
 
 type Props = {};
 
 export default function Catalog() {
   return (
-    <div className="h-[300px]">
+    <div className="">
       {/* BreadCrumbs */}
       <Container className="mb-5">
         <Breadcrumb>
@@ -31,9 +34,9 @@ export default function Catalog() {
       </Container>
 
       {/* Заголовок */}
-      <Container>
+      {/* <Container>
         <Title text="Бестселлеры" className="font-bold mb-10" size="xl" />
-      </Container>
+      </Container> */}
 
       {/* Блок сортировки и контента */}
 
@@ -46,8 +49,29 @@ export default function Catalog() {
 
           {/* Товары список */}
           <div className="flex-1">
+            {/* отображения контента  */}
+            <div className="flex items-center justify-between mb-5">
+              <SelectedGroup />
+
+              <div className="flex gap-2">
+                <Button
+                  variant="secondary"
+                  className="group rounded-full h-[50px] w-[53px] relative transition duration-300 ease-in-out "
+                >
+                  <LayoutDashboard className="group-hover:text-sb_green group-hover:scale-110" />
+                </Button>
+
+                <Button
+                  variant="secondary"
+                  className="group rounded-full h-[50px] w-[53px] relative transition duration-300 ease-in-out "
+                >
+                  <StretchHorizontal className="group-hover:text-sb_green group-hover:scale-110" />
+                </Button>
+              </div>
+            </div>
             <div className="flex flex-col gap-16">
               {/* Компонент для вывода всех товаров */}
+              <div className="">fafafaf</div>
             </div>
           </div>
         </div>

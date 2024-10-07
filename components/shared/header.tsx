@@ -36,10 +36,13 @@ export const Header = () => {
               <Link href="/fav">
                 <Button
                   variant="secondary"
-                  className="group rounded-full h-[50px] w-[53px] relative transition duration-300 ease-in-out hover:bg-sb_green"
+                  className="group rounded-full h-[50px] w-[53px] relative transition duration-300 ease-in-out "
                 >
-                  <Heart size={22} className="group-hover:text-sb_white" />
-                  <div className="absolute flex items-center justify-center bg-sb_green w-[23px] h-[23px] rounded-full text-sb_white text-[14px] bottom-[-8px] right-[0px] group-hover:bg-sb_black">
+                  <Heart
+                    size={22}
+                    className="group-hover:text-sb_green group-hover:scale-110"
+                  />
+                  <div className="absolute flex items-center justify-center bg-sb_green w-[23px] h-[23px] rounded-full text-sb_white text-[14px] bottom-[-8px] right-[0px]">
                     34
                   </div>
                 </Button>
@@ -48,11 +51,11 @@ export const Header = () => {
               <Link href="/cart">
                 <Button
                   variant="secondary"
-                  className="group rounded-full h-[50px] w-[53px] transition duration-300 ease-in-out hover:bg-sb_green"
+                  className="group rounded-full h-[50px] w-[53px] transition duration-300 ease-in-out "
                 >
                   <ShoppingCart
                     size={22}
-                    className="group-hover:text-sb_white"
+                    className="group-hover:text-sb_green group-hover:scale-110"
                   />
                 </Button>
               </Link>
