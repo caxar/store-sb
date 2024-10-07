@@ -19,6 +19,7 @@ type ProductCardProps = {
   name: string;
   price: number;
   imageUrl: string | any;
+  ticket?: string | null;
   className?: string;
 };
 
@@ -28,14 +29,16 @@ export const ProductCard = ({
   price,
   imageUrl,
   className,
+  ticket,
 }: ProductCardProps) => {
+  console.log(ticket);
   return (
     <div className={cn(" relative", className)}>
       <div className="group">
         <Link href={`/product/${id}`}>
           {/* Картинка товара */}
           <div className=" flex justify-center p-6 bg-secondary rounded-3xl h-[360px] bg-sb_white">
-            <img className="" src={imageUrl} alt={name} />
+            <img className="object-contain" src={imageUrl} alt={name} />
           </div>
         </Link>
         {/* Заголовок */}
@@ -75,13 +78,21 @@ export const ProductCard = ({
       </div>
 
       {/* Тикет хит */}
-      <div className="absolute top-3 left-3 flex items-center justify-center bg-sb_green uppercase text-[14px] text-sb_white w-[65px] py-1 rounded-2xl ">
-        hit
-      </div>
+      {ticket == "hit" ? (
+        <div className="absolute top-3 left-3 flex items-center justify-center bg-sb_green uppercase text-[14px] text-sb_white w-[65px] py-1 rounded-2xl ">
+          hit
+        </div>
+      ) : (
+        ""
+      )}
       {/* Тикет новинка*/}
-      <div className="absolute top-3 left-3 flex items-center justify-center bg-white uppercase text-[14px] w-[65px] py-1 rounded-2xl ">
-        new
-      </div>
+      {ticket == "new" ? (
+        <div className="absolute top-3 left-3 flex items-center justify-center bg-white uppercase text-[14px] w-[65px] py-1 rounded-2xl ">
+          new
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

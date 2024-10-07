@@ -57,7 +57,7 @@ export const RangeSlider = React.forwardRef(
         )}
         {...props}
       >
-        <SliderPrimitive.Track className="relative h-1 w-full grow overflow-hidden rounded-full bg-sb_white">
+        <SliderPrimitive.Track className="relative h-1 w-full grow overflow-hidden rounded-full bg-gray-600">
           <SliderPrimitive.Range className="absolute h-full bg-primary" />
         </SliderPrimitive.Track>
         {localValues.map((value, index) => (

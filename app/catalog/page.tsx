@@ -1,4 +1,11 @@
-import { Container, Filters, SelectedGroup, Title } from "@/components/shared";
+import {
+  Container,
+  Filters,
+  ProductCard,
+  ProductGroupList,
+  SelectedGroup,
+  Title,
+} from "@/components/shared";
 import { BreadCrumbs } from "@/components/shared/";
 import React from "react";
 import {
@@ -12,10 +19,15 @@ import {
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { LayoutDashboard, StretchHorizontal } from "lucide-react";
+import { prisma } from "@/prisma/prisma-client";
 
-type Props = {};
+export default async function Catalog() {
+  const productsFilter = await prisma.product.findMany({
+    include: {},
+  });
 
-export default function Catalog() {
+  console.log(productsFilter);
+
   return (
     <div className="">
       {/* BreadCrumbs */}
@@ -69,9 +81,19 @@ export default function Catalog() {
                 </Button>
               </div>
             </div>
-            <div className="flex flex-col gap-16">
+            {/* <div className="flex flex-col gap-16"> */}
+            <div className="grid grid-cols-3 gap-5">
               {/* Компонент для вывода всех товаров */}
-              <div className="">fafafaf</div>
+              {productsFilter.map((items) => (
+                <ProductCard
+                  key={items.id}
+                  id={items.id}
+                  name={items.name}
+                  imageUrl={items.imageUrl}
+                  price={Number(items.price)}
+                  ticket={items.ticket}
+                />
+              ))}
             </div>
           </div>
         </div>

@@ -38,7 +38,7 @@ export const Filters = ({ className }: FiltersProps) => {
       {/* <Title text="Фильтрация" size="sm" className="mb-5" /> */}
 
       {/* Фильтрация по цене с слайдером */}
-      <div className="mt-5 border-y border-y-neutral-100 py-6 pb-7">
+      <div className="mt-5 bg-sb_white px-3 pb-3 pt-3 mb-3 rounded-2xl">
         <p className=" mb-3">Цена от и до:</p>
         <div className="flex gap-3 mb-5">
           <Input
@@ -51,6 +51,7 @@ export const Filters = ({ className }: FiltersProps) => {
             onChange={(e) =>
               filters.setPrices("priceFrom", Number(e.target.value))
             }
+            className="bg-white"
           />
           <Input
             type="number"
@@ -61,6 +62,7 @@ export const Filters = ({ className }: FiltersProps) => {
             onChange={(e) =>
               filters.setPrices("priceTo", Number(e.target.value))
             }
+            className="bg-white"
           />
         </div>
 
