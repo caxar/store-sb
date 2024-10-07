@@ -31,20 +31,20 @@ export const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <div className={cn(" relative", className)}>
-      <Link href={`/product/${id}`}>
-        {/* Картинка товара */}
-        <div className="group flex justify-center p-6 bg-secondary rounded-3xl h-[360px] bg-sb_white">
-          <img className="" src={imageUrl} alt={name} />
-        </div>
-      </Link>
+      <div className="group">
+        <Link href={`/product/${id}`}>
+          {/* Картинка товара */}
+          <div className=" flex justify-center p-6 bg-secondary rounded-3xl h-[360px] bg-sb_white">
+            <img className="" src={imageUrl} alt={name} />
+          </div>
+        </Link>
+        {/* Заголовок */}
+        <Link href={`/product/${id}`}>
+          <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
+        </Link>
 
-      {/* Заголовок */}
-      <Link href={`/product/${id}`}>
-        <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
-      </Link>
-
-      <hr className="w-[45%] group-hover:border-sb_green transition ease duration-300" />
-
+        <hr className="w-[45%] group-hover:border-sb_green transition ease duration-300" />
+      </div>
       {/*  */}
       <div className="flex justify-between items-center mt-2">
         <span className="text-[20px]">
@@ -52,13 +52,14 @@ export const ProductCard = ({
         </span>
       </div>
 
-      <div className=" absolute top-5 right-5">
+      {/* Добавить в избранное */}
+      <div className="group absolute top-5 right-5">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
               <Button
                 variant="secondary"
-                className="group rounded-full h-[50px] w-[53px] bg-white transition duration-300 ease-in-out group-hover:bg-sb_green"
+                className="rounded-full h-[50px] w-[53px] bg-white transition duration-300 ease-in-out group-hover:bg-sb_green"
               >
                 <Heart
                   size={22}
@@ -71,6 +72,15 @@ export const ProductCard = ({
             </TooltipTrigger>
           </Tooltip>
         </TooltipProvider>
+      </div>
+
+      {/* Тикет хит */}
+      <div className="absolute top-3 left-3 flex items-center justify-center bg-sb_green uppercase text-[14px] text-sb_white w-[65px] py-1 rounded-2xl ">
+        hit
+      </div>
+      {/* Тикет новинка*/}
+      <div className="absolute top-3 left-3 flex items-center justify-center bg-white uppercase text-[14px] w-[65px] py-1 rounded-2xl ">
+        new
       </div>
     </div>
   );

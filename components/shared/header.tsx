@@ -27,7 +27,7 @@ export const Header = () => {
           {/* правая часть */}
           <div className="flex items-center gap-5">
             {/* Поиск */}
-            <div className="w-[300px]">
+            <div className="">
               <SearchInput />
             </div>
 
