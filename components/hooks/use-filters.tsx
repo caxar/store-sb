@@ -8,21 +8,21 @@ interface PriceProps {
 }
 
 export interface QueryFilters extends PriceProps {
-  pizzaTypes: string;
+  gender: string;
   sizes: string;
   brands: string;
 }
 
 export interface Filters {
   sizes: Set<string>;
-  pizzaTypes: Set<string>;
+  gender: Set<string>;
   selectedBrands: Set<string>;
   prices: PriceProps;
 }
 
 interface ReturnProps extends Filters {
   setPrices: (name: keyof PriceProps, value: number) => void;
-  setPizzaTypes: (value: string) => void;
+  setGender: (value: string) => void;
   setSizes: (value: string) => void;
   setselectedBrands: (value: string) => void;
 }
@@ -39,11 +39,6 @@ const useFilters = (): ReturnProps => {
     new Set<string>(searchParams.get("brands")?.split(","))
   );
 
-  // Выводим ингредиенты из hook useFilterIngredients
-  //   const { ingredients, loading, onAddId, selectedIds } = useFilterIngredients(
-  //     searchParams.get("ingredients")?.split(",")
-  //   );
-
   // Сохранение значений выранных checkbox Размеры пиццы
   const [sizes, { toggle: toggleSizes }] = useSet(
     new Set<string>(
@@ -51,12 +46,10 @@ const useFilters = (): ReturnProps => {
     )
   );
 
-  // Сохранение значений выранных checkbox Тип теста
-  const [pizzaTypes, { toggle: togglePizzaTypes }] = useSet(
+  // Сохранение значений выранных checkbox по полу
+  const [gender, { toggle: toggleGender }] = useSet(
     new Set<string>(
-      searchParams.get("pizzaTypes")
-        ? searchParams.get("pizzaTypes")?.split(",")
-        : []
+      searchParams.get("gender") ? searchParams.get("gender")?.split(",") : []
     )
   );
 
@@ -77,11 +70,11 @@ const useFilters = (): ReturnProps => {
 
   return {
     sizes,
-    pizzaTypes,
+    gender,
     selectedBrands,
     prices,
     setPrices: updatePrice,
-    setPizzaTypes: togglePizzaTypes,
+    setGender: toggleGender,
     setSizes: toggleSizes,
     setselectedBrands: toggleBrands,
   };

@@ -39,7 +39,7 @@ export const Filters = ({ className }: FiltersProps) => {
 
       {/* Фильтрация по цене с слайдером */}
       <div className="mt-5 border-y border-y-neutral-100 py-6 pb-7">
-        <p className="font-bold mb-3">Цена от и до:</p>
+        <p className=" mb-3">Цена от и до:</p>
         <div className="flex gap-3 mb-5">
           <Input
             type="number"
@@ -47,20 +47,20 @@ export const Filters = ({ className }: FiltersProps) => {
             min={0}
             max={25000}
             defaultValue={0}
-            // value={filters.prices.priceFrom}
-            // onChange={(e) =>
-            //   filters.setPrices("priceFrom", Number(e.target.value))
-            // }
+            value={filters.prices.priceFrom}
+            onChange={(e) =>
+              filters.setPrices("priceFrom", Number(e.target.value))
+            }
           />
           <Input
             type="number"
-            min={100}
+            min={0}
             max={25000}
-            placeholder="25000"
-            // value={filters.prices.priceTo}
-            // onChange={(e) =>
-            //   filters.setPrices("priceTo", Number(e.target.value))
-            // }
+            defaultValue={25000}
+            value={filters.prices.priceTo}
+            onChange={(e) =>
+              filters.setPrices("priceTo", Number(e.target.value))
+            }
           />
         </div>
 
@@ -78,18 +78,18 @@ export const Filters = ({ className }: FiltersProps) => {
         />
       </div>
 
-      {/* Бренды */}
+      {/* Фильтрация по полу */}
       <CheckboxFiltersGroup
         title={"Пол"}
         className="mb-5"
-        // loading={loading}
-        // selectedIds={filters.sizes}
+        loading={loading}
+        selectedIds={filters.gender}
         items={[
           { text: "мужской", value: "man" },
           { text: "женский", value: "woman" },
         ]}
         defaultItems={[]}
-        // onClickCheckbox={filters.setSizes}
+        onClickCheckbox={filters.setGender}
       />
 
       {/* Фильтрация по брендам */}

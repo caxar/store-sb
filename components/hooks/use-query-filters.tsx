@@ -9,7 +9,7 @@ const useQueryFilters = (filters: Filters) => {
   React.useEffect(() => {
     const params = {
       ...filters.prices,
-      pizzaTypes: Array.from(filters.pizzaTypes),
+      gender: Array.from(filters.gender),
       sizes: Array.from(filters.sizes),
       brands: Array.from(filters.selectedBrands),
     };
