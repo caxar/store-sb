@@ -22,11 +22,11 @@ import { LayoutDashboard, StretchHorizontal } from "lucide-react";
 import { prisma } from "@/prisma/prisma-client";
 
 export default async function Catalog() {
+  // const [columnView, setColumnView] = React.useState<boolean>(false);
+
   const productsFilter = await prisma.product.findMany({
     include: {},
   });
-
-  console.log(productsFilter);
 
   return (
     <div className="">
@@ -82,7 +82,7 @@ export default async function Catalog() {
               </div>
             </div>
             {/* <div className="flex flex-col gap-16"> */}
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-3 gap-x-5 gap-y-10">
               {/* Компонент для вывода всех товаров */}
               {productsFilter.map((items) => (
                 <ProductCard

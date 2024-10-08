@@ -56,7 +56,7 @@ export const ProductCard = ({
       </div>
 
       {/* Добавить в избранное */}
-      <div className="group absolute top-5 right-5">
+      <div className="group absolute top-3 right-3">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>

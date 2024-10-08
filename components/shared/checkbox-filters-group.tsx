@@ -49,7 +49,7 @@ export const CheckboxFiltersGroup = ({
     ? items?.filter((item) =>
         item.text.toLowerCase().includes(searchValue.toLowerCase())
       )
-    : items || defaultItems?.slice(0, limit);
+    : items.slice(0, limit);
 
   // Функция поиска обработка текста в input
   const onChangeSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,13 +81,17 @@ export const CheckboxFiltersGroup = ({
           <Input
             onChange={onChangeSearchInput}
             placeholder={searchInputPlaceholder}
-            className="bg-gray-100 border-none"
+            className="bg-white border-none"
           />
         </div>
       )}
 
       {/* Вывод всех checkbox для фильтрации */}
-      <div className="flex flex-col gap-3 max-h-96 pr-2 overflow-auto">
+      <div
+        className={`flex flex-col gap-3 max-h-96 pr-2 ${
+          showAll && "overflow-auto"
+        }`}
+      >
         {itemsList.map((item, index) => (
           <FilterCheckbox
             key={nanoid()}

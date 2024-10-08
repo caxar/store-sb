@@ -18,3 +18,4 @@ export { SelectedGroup } from "./selected-group";
 export { CheckboxFiltersGroup } from "./checkbox-filters-group";
 export { FilterCheckbox } from "./filter-checkbox";
 export { RangeSlider } from "./range-slider";
+export { GroupVariants } from "./group-variants";

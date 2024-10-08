@@ -100,7 +100,7 @@ export const Filters = ({ className }: FiltersProps) => {
         className="mt-5"
         limit={5}
         loading={loading}
-        defaultItems={items.slice(0, 4)}
+        defaultItems={items.slice(0, 5)}
         items={items}
         onClickCheckbox={filters.setselectedBrands}
         selectedIds={filters.selectedBrands}
