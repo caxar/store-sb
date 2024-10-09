@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { nanoid } from "nanoid";
 import React from "react";
+import { useSet } from "react-use";
 
 type Variant = {
   name: string;
@@ -24,16 +25,24 @@ export const GroupVariants = ({
   selectedValue,
   items,
 }: GroupVariantsProps) => {
+  const [sizes, { toggle: toggleSizes }] = useSet(new Set<string>());
+
   return (
-    <div className={cn("flex items-center gap-4 p-1 select-none", className)}>
+    <div
+      className={cn(
+        "flex items-center gap-4 p-1 select-none flex-wrap",
+        className
+      )}
+    >
       {items.map((item) => (
         <button
           key={nanoid()}
-          onClick={() => onClick?.(item.value)}
+          // onClick={() => onClick?.(item.value)}
+          onClick={() => toggleSizes?.(item.value)}
           className={cn(
-            "flex items-center justify-center bg-sb_white cursor-pointer w-[80px] py-1 rounded-3xl transition-all duration-300 text-md",
+            "flex items-center justify-center bg-sb_white cursor-pointer w-[80px] border-transparent border-2 py-1 rounded-3xl transition-all duration-300 text-md hover:border-2 hover:border-sb_green",
             {
-              "bg-red-900": item.value === selectedValue,
+              "bg-sb_green text-sb_white": sizes.has(item.value),
               "text-gray-500 opacity-50 pointer-events-none": item.disabled,
             }
           )}
