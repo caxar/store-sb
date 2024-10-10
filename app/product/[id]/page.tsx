@@ -3,6 +3,8 @@ import {
   Container,
   GroupTabs,
   GroupVariants,
+  Subscribe,
+  SubscribeForm,
   Title,
 } from "@/components/shared";
 import { CountButton } from "@/components/shared/count-button";
@@ -16,27 +18,70 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
+import { prisma } from "@/prisma/prisma-client";
+import { notFound } from "next/navigation";
+
 const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
+  const product = await prisma.product.findFirst({
+    where: { id: Number(id) },
+    include: {
+      items: true,
+    },
+  });
+
+  // Если нет продукта то страница 404
+  if (!product) {
+    return notFound();
+  }
+
+  const productPrice = product.price;
+
   return (
     <div className="mb-10">
       <Container>
-        <div className="grid grid-cols-2 justify-between gap-10">
+        <Breadcrumb className="mb-10">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Главная</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/catalog">Каталог</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink>{product.name}</BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
+        <div className="grid grid-cols-2 justify-between gap-10 mb-10">
           {/* Картинки */}
-          <div className="bg-sb_white rounded-3xl">
-            <img src="/shoes-2.png" alt="" />
+          <div className="bg-sb_white rounded-3xl flex items-center justify-center">
+            <img src={product.imageUrl} alt="" className="" />
           </div>
 
           {/* Информация о товаре */}
           <div className="">
-            <Title text="Nike Dunk low SE" className="font-bold" size="xl" />
+            <Title text={product.name} className="font-bold" size="xl" />
             <hr className="w-[45%] group-hover:border-sb_green transition ease duration-300"></hr>
 
             <div className="mt-2 mb-5 text-[20px]">
-              {FormatCardPrice({ price: 21413 })} ₽
+              {FormatCardPrice(Number(productPrice))} ₽
             </div>
 
             <Title text="Выберите размер" size="xs" />
 
+            {/* Выбор размера */}
             <div className="mb-4">
               <GroupVariants
                 className="mt-3"
@@ -86,8 +131,11 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
           </div>
 
           {/* Табы описания */}
-          <GroupTabs />
+          <GroupTabs descriptionProduct={product?.items[0]?.description} />
         </div>
+
+        {/* Подпись на рассылку */}
+        <Subscribe className="mb-[80px]" />
       </Container>
     </div>
   );

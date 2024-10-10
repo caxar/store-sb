@@ -50,6 +50,16 @@ async function up() {
     data: products,
   });
 
+  await prisma.productItem.createMany({
+    data: [
+      {
+        productId: 1,
+        description: `Nike Dunk SB Low x Run The Jewels в сине-розовом цвете-это сотрудничество Nike и хип-хоп-дуэта Run The Jewels.Силуэт Dunk SB Low получил стильный и яркий облик, который заставит вас повернуть головы, куда бы вы ни пошли.Цветовая гамма Blue Pink — абсолютный шедевр. Сочетание ярких синих и ярких розовых акцентов создает поразительный контраст. Верх выполнен из высококачественной замши и кожи, что придает обуви роскошный вид.`,
+        gender: "man",
+      },
+    ],
+  });
+
   await prisma.cart.createMany({
     data: [
       {

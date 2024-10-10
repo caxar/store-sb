@@ -51,7 +51,7 @@ export const ProductCard = ({
       {/*  */}
       <div className="flex justify-between items-center mt-2">
         <span className="text-[20px]">
-          <div className="text-[19px] ">{FormatCardPrice({ price })} ₽</div>
+          <div className="text-[19px] ">{FormatCardPrice(price)} ₽</div>
         </span>
       </div>
 

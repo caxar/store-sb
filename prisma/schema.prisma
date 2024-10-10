@@ -75,6 +75,7 @@ model ProductItem {
 
     size      Int?
     gender String?
+    description String?
 
     cartItems CartItem[]
 
