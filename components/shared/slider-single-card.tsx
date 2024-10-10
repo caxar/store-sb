@@ -32,16 +32,16 @@ export const SliderSingleCard = ({ imageMain, imageGroup }: Props) => {
   return (
     <>
       <Swiper
-        className=""
+        className="bg-sb_white rounded-3xl mb-5"
         spaceBetween={20}
         slidesPerView={1}
         // pagination={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs, Pagination]}
       >
-        <SwiperSlide className="">
+        {/* <SwiperSlide className="">
           <img src={`${imageMain}`} alt="test" />
-        </SwiperSlide>
+        </SwiperSlide> */}
         {imageGroup &&
           imageGroup.map((item) => (
             <SwiperSlide key={nanoid()} className="">
@@ -54,6 +54,12 @@ export const SliderSingleCard = ({ imageMain, imageGroup }: Props) => {
               )}
             </SwiperSlide>
           ))}
+
+        {imageMain && (
+          <SwiperSlide className="">
+            <img src={`${imageMain}`} alt="test" />
+          </SwiperSlide>
+        )}
       </Swiper>
 
       {/*  Картинки галерея */}
@@ -73,7 +79,7 @@ export const SliderSingleCard = ({ imageMain, imageGroup }: Props) => {
           imageGroup.map((item, index) => (
             <SwiperSlide
               key={nanoid()}
-              className="cursor-pointer"
+              className="cursor-pointer bg-sb_white rounded-3xl border-2 border-transparent"
               onClick={() => setTest(index)}
             >
               <img

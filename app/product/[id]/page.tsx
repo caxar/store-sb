@@ -67,7 +67,7 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
 
         <div className="grid grid-cols-2 justify-between gap-10 mb-[60px]">
           {/* Картинки */}
-          <div className="bg-sb_white rounded-3xl">
+          <div className=" rounded-3xl">
             {/* <img src={product.imageUrl} alt="" className="" /> */}
             <SliderSingleCard
               imageMain={product?.imageUrl}
