@@ -3,6 +3,7 @@ import {
   Container,
   GroupTabs,
   GroupVariants,
+  SliderSingleCard,
   Subscribe,
   SubscribeForm,
   Title,
@@ -64,15 +65,19 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <div className="grid grid-cols-2 justify-between gap-10 mb-10">
+        <div className="grid grid-cols-2 justify-between gap-10 mb-[60px]">
           {/* Картинки */}
-          <div className="bg-sb_white rounded-3xl flex items-center justify-center">
-            <img src={product.imageUrl} alt="" className="" />
+          <div className="bg-sb_white rounded-3xl">
+            {/* <img src={product.imageUrl} alt="" className="" /> */}
+            <SliderSingleCard
+              imageMain={product?.imageUrl}
+              imageGroup={product?.items[0]?.imageUrl}
+            />
           </div>
 
           {/* Информация о товаре */}
           <div className="">
-            <Title text={product.name} className="font-bold" size="xl" />
+            <Title text={product?.name} className="font-bold" size="xl" />
             <hr className="w-[45%] group-hover:border-sb_green transition ease duration-300"></hr>
 
             <div className="mt-2 mb-5 text-[20px]">

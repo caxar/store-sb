@@ -1,4 +1,4 @@
-export const InfoCart = [
+export const TabsCartInfo = [
   {
     title: "Описание",
     value: "description",

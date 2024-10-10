@@ -20,3 +20,4 @@ export { FilterCheckbox } from "./filter-checkbox";
 export { RangeSlider } from "./range-slider";
 export { GroupVariants } from "./group-variants";
 export { GroupTabs } from "./group-tabs";
+export { SliderSingleCard } from "./slider-single-card";
