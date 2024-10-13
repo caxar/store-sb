@@ -106,7 +106,6 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
                 //   { name: "43", value: "9", disabled: false },
                 // ]}
                 items={product?.size}
-                // availableSize={product.availableSize}
                 availableSize={product.availableSizes}
               />
             </div>

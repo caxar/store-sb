@@ -116,6 +116,29 @@ export const availableSizeFirst = [
   },
 ].map((obj, index) => ({ id: index + 1, ...obj }));
 
+export const availableSizeSecond = [
+  {
+    name: "37",
+    value: "1",
+    disabled: true,
+  },
+  {
+    name: "38",
+    value: "3",
+    disabled: true,
+  },
+  {
+    name: "39",
+    value: "5",
+    disabled: true,
+  },
+  {
+    name: "41",
+    value: "7",
+    disabled: true,
+  },
+].map((obj, index) => ({ id: index + 1, ...obj }));
+
 export const categories = [
   {
     name: "Для мужчин",

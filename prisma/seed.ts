@@ -6,6 +6,7 @@ import {
   categories,
   shoeSizes,
   availableSizeFirst,
+  availableSizeSecond,
 } from "./constants";
 
 const prisma = new PrismaClient();
@@ -56,14 +57,6 @@ async function up() {
     data: shoeSizes,
   });
 
-  // await prisma.availableSizes.createMany({
-  //   data: availableSizeFirst,
-  // });
-
-  await prisma.availableSize.createMany({
-    data: availableSizeFirst,
-  });
-
   const shoe1 = await prisma.product.create({
     data: {
       name: "Nike Air max 97",
@@ -74,9 +67,6 @@ async function up() {
       brandId: 1,
       size: {
         connect: shoeSizes,
-      },
-      availableSizes: {
-        connect: availableSizeFirst,
       },
     },
   });
@@ -136,6 +126,29 @@ async function up() {
           "shoes-4-dope2.png",
           "shoes-4-dope3.png",
         ],
+      },
+    ],
+  });
+
+  await prisma.availableSize.createMany({
+    data: [
+      {
+        productId: shoe1.id,
+        name: "38",
+        value: "3",
+        disabled: true,
+      },
+      {
+        productId: shoe1.id,
+        name: "39",
+        value: "5",
+        disabled: true,
+      },
+      {
+        productId: shoe1.id,
+        name: "42",
+        value: "8",
+        disabled: true,
       },
     ],
   });
