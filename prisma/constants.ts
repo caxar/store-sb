@@ -98,6 +98,24 @@ export const shoeSizes = [
   },
 ].map((obj, index) => ({ id: index + 1, ...obj }));
 
+export const availableSizeFirst = [
+  {
+    name: "38",
+    value: "3",
+    disabled: true,
+  },
+  {
+    name: "39",
+    value: "5",
+    disabled: true,
+  },
+  {
+    name: "42",
+    value: "8",
+    disabled: true,
+  },
+].map((obj, index) => ({ id: index + 1, ...obj }));
+
 export const categories = [
   {
     name: "Для мужчин",

@@ -63,6 +63,17 @@ model Sizes {
   createdAt DateTime @default(now())
 }
 
+
+model AvailableSize {
+  id Int @id @default(autoincrement())
+
+  name     String
+  value    String
+  disabled Boolean
+
+  products  Product[]
+}
+
 model Product {
     id Int @id @default(autoincrement())
 
@@ -73,16 +84,14 @@ model Product {
     ticket String?
 
     items       ProductItem[]
-    // size Sizes[]
+    size Sizes[]
+    availableSizes AvailableSize[]
 
     category   Category @relation(fields: [categoryId], references: [id])
     categoryId Int
 
     brand   Brands @relation(fields: [brandId], references: [id])
     brandId Int
-
-    size   Sizes @relation(fields: [sizeId], references: [id])
-    sizeId Int
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt

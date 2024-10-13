@@ -1,6 +1,12 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 import { hashSync } from "bcrypt";
-import { brands, products, categories, shoeSizes } from "./constants";
+import {
+  brands,
+  products,
+  categories,
+  shoeSizes,
+  availableSizeFirst,
+} from "./constants";
 
 const prisma = new PrismaClient();
 
@@ -50,6 +56,10 @@ async function up() {
     data: shoeSizes,
   });
 
+  // await prisma.availableSizes.createMany({
+  //   data: availableSizeFirst,
+  // });
+
   const shoe1 = await prisma.product.create({
     data: {
       name: "Nike Air max 97",
@@ -61,6 +71,9 @@ async function up() {
       size: {
         connect: shoeSizes,
       },
+      // availableSize: {
+      //   connect: availableSizeFirst,
+      // },
     },
   });
 
@@ -151,6 +164,7 @@ async function down() {
   await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE;`;
   await prisma.$executeRaw`TRUNCATE TABLE "Brands" RESTART IDENTITY CASCADE;`;
   await prisma.$executeRaw`TRUNCATE TABLE "Product" RESTART IDENTITY CASCADE;`;
+  await prisma.$executeRaw`TRUNCATE TABLE "AvailableSize" RESTART IDENTITY CASCADE;`;
   await prisma.$executeRaw`TRUNCATE TABLE "Sizes" RESTART IDENTITY CASCADE;`;
   await prisma.$executeRaw`TRUNCATE TABLE "ProductItem" RESTART IDENTITY CASCADE;`;
   await prisma.$executeRaw`TRUNCATE TABLE "Order" RESTART IDENTITY CASCADE;`;
