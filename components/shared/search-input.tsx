@@ -37,6 +37,10 @@ export const SearchInput = ({ className }: SearchInputProps) => {
     [searchQuery]
   );
 
+  const handleClick = () => {
+    setFocused(false);
+  };
+
   return (
     <>
       {focused && (
@@ -71,6 +75,7 @@ export const SearchInput = ({ className }: SearchInputProps) => {
         >
           {products?.map((item) => (
             <Link
+              onClick={handleClick}
               className="flex items-center gap-2 px-3 py-2 hover:bg-sb_white"
               key={nanoid()}
               href={`/product/${item.id}`}

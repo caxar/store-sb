@@ -36,6 +36,7 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
     where: { id: Number(id) },
     include: {
       items: true,
+      size: true,
     },
   });
 
@@ -76,7 +77,7 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
           </div>
 
           {/* Информация о товаре */}
-          <div className="">
+          <div className="sticky top-[100px]">
             <Title text={product?.name} className="font-bold" size="xl" />
             <hr className="w-[45%] group-hover:border-sb_green transition ease duration-300"></hr>
 
@@ -90,20 +91,22 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
             <div className="mb-4">
               <GroupVariants
                 className="mt-3"
-                items={[
-                  { name: "37", value: "1", disabled: false },
-                  { name: "37,5", value: "2", disabled: false },
-                  { name: "38", value: "3", disabled: false },
-                  { name: "38,5", value: "4", disabled: true },
-                  { name: "39", value: "5", disabled: false },
-                  { name: "40", value: "6", disabled: false },
-                  { name: "41", value: "7", disabled: true },
-                  { name: "42", value: "8", disabled: false },
-                  { name: "43", value: "9", disabled: true },
-                ]}
+                // items={[
+                //   { name: "37", value: "1", disabled: false },
+                //   { name: "37,5", value: "2", disabled: false },
+                //   { name: "38", value: "3", disabled: false },
+                //   { name: "38,5", value: "4", disabled: false },
+                //   { name: "39", value: "5", disabled: false },
+                //   { name: "40", value: "6", disabled: false },
+                //   { name: "41", value: "7", disabled: false },
+                //   { name: "42", value: "8", disabled: false },
+                //   { name: "43", value: "9", disabled: false },
+                // ]}
+                items={product?.size}
               />
             </div>
 
+            {/* кнопки количества товара */}
             <CountButton className="mb-5" />
 
             <div className="flex gap-x-5">

@@ -49,6 +49,20 @@ model Brands {
   createdAt DateTime @default(now())
 }
 
+model Sizes {
+  id Int @id @default(autoincrement())
+
+  name     String
+  value    String
+  disabled Boolean
+
+  products  Product[]
+
+  // cartItems CartItem[]
+
+  createdAt DateTime @default(now())
+}
+
 model Product {
     id Int @id @default(autoincrement())
 
@@ -59,6 +73,7 @@ model Product {
     ticket String?
 
     items       ProductItem[]
+    // size Sizes[]
 
     category   Category @relation(fields: [categoryId], references: [id])
     categoryId Int
@@ -66,18 +81,21 @@ model Product {
     brand   Brands @relation(fields: [brandId], references: [id])
     brandId Int
 
+    size   Sizes @relation(fields: [sizeId], references: [id])
+    sizeId Int
+
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
 
+
 model ProductItem {
     id Int @id @default(autoincrement())
 
-    size      Int?
     gender String?
     description String?
-    imageUrl String[]
 
+    imageUrl String[]
 
     cartItems CartItem[]
 
