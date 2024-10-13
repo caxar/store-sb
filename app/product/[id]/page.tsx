@@ -37,6 +37,7 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
     include: {
       items: true,
       size: true,
+      availableSizes: true,
     },
   });
 
@@ -106,6 +107,7 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
                 // ]}
                 items={product?.size}
                 // availableSize={product.availableSize}
+                availableSize={product.availableSizes}
               />
             </div>
 

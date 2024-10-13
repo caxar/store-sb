@@ -60,6 +60,10 @@ async function up() {
   //   data: availableSizeFirst,
   // });
 
+  await prisma.availableSize.createMany({
+    data: availableSizeFirst,
+  });
+
   const shoe1 = await prisma.product.create({
     data: {
       name: "Nike Air max 97",
@@ -71,9 +75,9 @@ async function up() {
       size: {
         connect: shoeSizes,
       },
-      // availableSize: {
-      //   connect: availableSizeFirst,
-      // },
+      availableSizes: {
+        connect: availableSizeFirst,
+      },
     },
   });
 
